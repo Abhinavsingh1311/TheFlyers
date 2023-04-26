@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800&family=Noto+Sans:ital,wght@0,400;0,700;1,700&display=swap"
+        rel="stylesheet">
+    <!-- css reset goes here -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <!-- css styles goes here -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body id="quiz">
+    <header>
+        <h1>DMIT Program Concentrations</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../webpages/computersoftware.html">Computer Software</a></li>
+            <li><a href="../webpages/webdev.html">Web Development</a></li>
+            <li><a href="../webpages/resources.html">Resources</a></li>
+            <li><a href="../webpages/comparison.html">Compare</a></li>
+
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="card">
+            <h2>Find the right career for you</h2>
+            <form id="aptitude-test" action="process_results.php" method="post">
+                <h3>Question 1</h3>
+                <p>Do you enjoy problem-solving?</p>
+                <input type="radio" id="q1-yes" name="q1" value="yes">
+                <label for="q1-yes">Yes</label><br>
+                <input type="radio" id="q1-no" name="q1" value="no">
+                <label for="q1-no">No</label>
+
+                <h3>Question 2</h3>
+                <p>Do you have an eye for design?</p>
+                <input type="radio" id="q2-yes" name="q2" value="yes">
+                <label for="q2-yes">Yes</label><br>
+                <input type="radio" id="q2-no" name="q2" value="no">
+                <label for="q2-no">No</label>
+
+                <h3>Question 3</h3>
+                <p>Do you enjoy learning new programming languages?</p>
+                <input type="radio" id="q3-yes" name="q3" value="yes">
+                <label for="q3-yes">Yes</label><br>
+                <input type="radio" id="q3-no" name="q3" value="no">
+                <label for="q3-no">No</label>
+
+                <h3>Question 4</h3>
+                <p>Are you interested in creating user interfaces?</p>
+                <input type="radio" id="q4-yes" name="q4" value="yes">
+                <label for="q4-yes">Yes</label><br>
+                <input type="radio" id="q4-no" name="q4" value="no">
+                <label for="q4-no">No</label>
+
+                <h3>Question 5</h3>
+                <p>Do you prefer working on the logic and functionality of applications?</p>
+                <input type="radio" id="q5-yes" name="q5" value="yes">
+                <label for="q5-yes">Yes</label><br>
+                <input type="radio" id="q5-no" name="q5" value="no">
+                <label for="q5-no">No</label>
+
+                <h3>Question 6</h3>
+                <p>Do you enjoy working with databases and managing data?</p>
+                <input type="radio" id="q6-yes" name="q6" value="yes">
+                <label for="q6-yes">Yes</label><br>
+                <input type="radio" id="q6-no" name="q6" value="no">
+                <label for="q6-no">No</label>
+
+                <h3>Question 7</h3>
+                <p>Do you prefer working on the visual appearance of websites and applications?</p>
+                <input type="radio" id="q7-yes" name="q7" value="yes">
+                <label for="q7-yes">Yes</label><br>
+                <input type="radio" id="q7-no" name="q7" value="no">
+                <label for="q7-no">No</label>
+
+                <h3>Question 8</h3>
+                <p>Are you more interested in frontend development than backend development?</p>
+                <input type="radio" id="q8-yes" name="q8" value="yes">
+                <label for="q8-yes">Yes</label><br>
+                <input type="radio" id="q8-no" name="q8" value="no">
+                <label for="q8-no">No</label>
+
+                <h3>Question 9</h3>
+                <p>Do you enjoy optimizing applications for performance and efficiency?</p>
+                <input type="radio" id="q9-yes" name="q9" value="yes">
+                <label for="q9-yes">Yes</label><br>
+                <input type="radio" id="q9-no" name="q9" value="no">
+                <label for="q9-no">No</label>
+
+                <h3>Question 10</h3>
+                <p>Do you prefer to collaborate with clients to understand their needs and create customized solutions?
+                </p>
+                <input type="radio" id="q10-yes" name="q10" value="yes">
+                <label for="q10-yes">Yes</label><br>
+                <input type="radio" id="q10-no" name="q10" value="no">
+                <label for="q10-no">No</label>
+                <br><br>
+                <input class="quiz-submit-btn" type="button" value="Submit" onclick="processResults()">
+            </form>
+            <p class="result" id="result"></p>
+        </section>
+        <script>
+            function processResults() {
+                const form = document.getElementById("aptitude-test");
+                const resultElement = document.getElementById("result");
+                let score = 0;
+                if (form.q1.value === "yes") {
+                    score += 1;
+                }
+                if (form.q2.value === "yes") {
+                    score -= 1;
+                }
+                if (form.q3.value === "yes") {
+                    score += 1;
+                }
+                if (form.q4.value === "yes") {
+                    score -= 1;
+                }
+                if (form.q5.value === "yes") {
+                    score += 1;
+                }
+
+                if (form.q6.value === "yes") {
+                    score += 1;
+                }
+                if (form.q7.value === "yes") {
+                    score -= 1;
+                }
+                if (form.q8.value === "yes") {
+                    score -= 1;
+                }
+                if (form.q9.value === "yes") {
+                    score += 1;
+                }
+                if (form.q10.value === "yes") {
+                    score -= 1;
+                }
+
+                let recommendation = "";
+
+                if (score >= 5) {
+                    recommendation = "Based on your answers, we recommend the Computer Software Development concentration.";
+                } else if (score < 5 && score>0) {
+                    recommendation = "Based on your answers, we recommend the Web Design and Development concentration.";
+                }
+                else if (score === 0) {
+                    recommendation = "Kindly check the boxes first!";
+                }
+                else {
+                    recommendation = "Your answers suggest that you may be suited for either the Computer Software Development or Web Design and Development concentration. We recommend further research and exploration.";
+                }
+
+
+                resultElement.textContent = recommendation;
+                resultElement.style.display = "block";
+            }
+        </script>
+    </div>
+
+</body>
+
+</html>
